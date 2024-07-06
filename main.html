@@ -54,18 +54,31 @@
   <div class="container-fluid">
     <div class="row justify-content-center align-items-center">
       <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel"
-        style="width: 1200px; padding: 20px;">
-        <div class="carousel-inner"id="carousel-images-ong-ong" >
+        style="width: 1200px; padding: 20px;" data-bs-keyboard="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner" id="carousel-images-ong-ong">
           <div class="carousel-item active">
             <div class="row">
 
 
               <div class="col-8">
-                <img src="images/img-1.png" class="d-block w-100" alt="..." style="border-radius: 15px; border: solid 2px rgb(53, 53, 53)">
+                <img src="images/img-1.png" class="d-block w-100" alt="..."
+                  style="border-radius: 15px; border: solid 2px rgb(53, 53, 53)">
               </div>
               <div class="col-4">
                 <h1 style="word-wrap: break-word;">Lorem ipsum dolor sit amet.</h1>
-                <span style="word-wrap: break-word;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span>
+                <span style="word-wrap: break-word;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span>
 
               </div>
             </div>
@@ -76,11 +89,16 @@
 
 
               <div class="col-8">
-                <img src="images/img-2.png" class="d-block w-100" alt="..." style="border-radius: 15px; border: solid 2px rgb(53, 53, 53)">
+                <img src="images/img-2.png" class="d-block w-100" alt="..."
+                  style="border-radius: 15px; border: solid 2px rgb(53, 53, 53)">
               </div>
               <div class="col-4">
                 <h1 style="word-wrap: break-word;">Lorem ipsum dolor sit amet.</h1>
-                <span style="word-wrap: break-word;"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span>
+                <span style="word-wrap: break-word;"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span>
 
               </div>
             </div>
@@ -90,15 +108,56 @@
 
 
               <div class="col-8">
-                <img src="images/img-3.png" class="d-block w-100" alt="..." style="border-radius: 15px; border: solid 2px rgb(53, 53, 53)">
+                <img src="images/img-3.png" class="d-block w-100" alt="..."
+                  style="border-radius: 15px; border: solid 2px rgb(53, 53, 53)">
               </div>
               <div class="col-4">
                 <h1 style="word-wrap: break-word;">Lorem ipsum dolor sit amet.</h1>
-                <span style="word-wrap: break-word;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span>
+                <span style="word-wrap: break-word;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span>
 
               </div>
             </div>
           </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span> </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span> </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-12" id="banner">
+        <h1>Challenge to Excellence Charter School</h1>
+        <span> lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem
+          ipsumlorem ipsum</span>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-4" id="column 1" style="background-color: red;">
+        <div class="col">
+          
+        </div>
+      </div>
+      <div class="col-4" id="column 2" style="background-color:green">
+        <div class="col">
+          
+        </div>
+      </div>
+      <div class="col-4" id="column 3" style="background-color:blue">
+        <div class="col">
+          
         </div>
       </div>
     </div>

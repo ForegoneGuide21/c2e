@@ -1,3 +1,7 @@
+/*body {3
+    background-color: !important;
+}
+*/
 .nav-item.dropdown:hover #drop {
     display: block;
 }
@@ -20,3 +24,44 @@
     right: 100%;
     margin-top: -1px;
 }
+
+.carousel-control-next {
+    margin-right: 396px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    right: 396px !important;
+    
+  }
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.602);
+    border-radius: 15px;
+    opacity: 0.2;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+#banner {
+    background-color: rgba(28, 28, 28, 0.381);
+    text-align: center;
+    padding-bottom: 15px;
+    padding-top: 7px;
+}
+
+
+
+/*  
+
+body = html tag
+#body = id of html tag
+.body = class of html tag
+
+
+*/
