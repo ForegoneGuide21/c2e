@@ -32,8 +32,8 @@
 .carousel-indicators {
     position: absolute;
     right: 396px !important;
-    
-  }
+
+}
 
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
@@ -49,12 +49,54 @@
 
 
 #banner {
-    background-color: rgba(28, 28, 28, 0.381);
+    background-color: rgba(28, 28, 28, 0.38);
     text-align: center;
     padding-bottom: 15px;
     padding-top: 7px;
 }
 
+#box1 {
+    position: relative;
+    top: 10;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    border: 1px solid #000;
+    text-align: center;
+    background: linear-gradient(to top, #ffffff 0%, #1c1c1c61 100%);
+    font-size: large;
+    border-radius: 15px;
+
+
+}
+
+#box2 {
+    position: relative;
+    top: 10;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    border: 1px solid #000;
+    text-align: center;
+    background: linear-gradient(to top, #ffffff 0%, #1c1c1c61 100%);
+    font-size: large;
+    border-radius: 15px;
+
+}
+
+#box3 {
+    position: relative;
+    top: 10;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    border: 1px solid #000;
+    text-align: center;
+    background: linear-gradient(to top, #ffffff 0%, #1c1c1c61 100%);
+    font-size: large;
+    border-radius: 15px;
+
+}
 
 
 /*  
