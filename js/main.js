@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
         scene.add(cube);
 
         const fallSpeed = 0.1;
-        const rotationSpeedX = 0.1;
-        const rotationSpeedY = 0.5;
+        const rotationSpeedX = 0.03;
+        const rotationSpeedY = 0.05;
 
         const animate = () => {
             requestAnimationFrame(animate);
@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             cube.rotation.y += rotationSpeedY;
 
             if (cube.position.y < -10) {
+                
                 scene.remove(cube);
                 cube.geometry.dispose(); // Clean up geometry
                 cube.material.dispose(); // Clean up material
@@ -40,26 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
         animate();
     };
 
-    // Function to start creating multiple objects
-    const startCreatingObjects = (numberOfObjects) => {
-        for (let i = 0; i < numberOfObjects; i++) {
-            createFallingObject();
-        }
-        setInterval(() => createFallingObject(), 1000);
-    };
+   
 
     // Set initial camera position
     camera.position.z = 15;
 
-    // Start creating objects
-    startCreatingObjects(10);  // Create initial set of objects
+    createFallingObject();
 
-    // Render loop
-    const render = () => {
-        requestAnimationFrame(render);
-        renderer.render(scene, camera);
-    };
-    render();
 
     // Handle window resizing
     window.addEventListener('resize', () => {
@@ -68,6 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
         camera.updateProjectionMatrix();
     });
 });
+
+
 
 
 
