@@ -1,3 +1,5 @@
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     // Initialize the scene, camera, and renderer
     const container = document.getElementById('when');
@@ -114,6 +116,8 @@ te
 /*
 
 # in hex color picking is 0x
+
+#stl loader doesnt work
 
 
 
