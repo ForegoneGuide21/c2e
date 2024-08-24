@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById('when');
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    
+
     // Create renderer with alpha transparency enabled
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -11,8 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(renderer.domElement);
 
     // Create geometry and material for cubes
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+    const geometry = new THREE.BoxGeometry(.15, 1.3, .9);
+    const loader = new THREE.TextureLoader();
+    const material = [
+        new THREE.MeshBasicMaterial({ map: loader.load('book.jpg') }),
+        new THREE.MeshBasicMaterial({ color: 0x2d703c}),
+        new THREE.MeshBasicMaterial({ map: loader.load('book-side.png')}),
+        new THREE.MeshBasicMaterial({ map: loader.load('book-side.png')}),
+        new THREE.MeshBasicMaterial({ map: loader.load('book-side.png')}),
+        new THREE.MeshBasicMaterial({ color: 0x2d703c})
+        
+    ];
 
     // Variable to hold the current falling object
     let fallingObject = null;
@@ -23,12 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (fallingObject) {
             scene.remove(fallingObject);
             fallingObject.geometry.dispose(); // Clean up geometry
-            fallingObject.material.dispose(); // Clean up material
+            //fallingObject.material.dispose(); // Clean up material
+            material.forEach(material => material.dispose());
         }
 
         // Create a new cube
         fallingObject = new THREE.Mesh(geometry, material);
-        fallingObject.position.set((Math.random() - 0.5) * 10, 20 + Math.random() * 10, (Math.random() - 0.5) * 10);
+        fallingObject.position.set((Math.random() - 0.5) * 10, 20 + Math.random() * 10, 1);
         fallingObject.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
         scene.add(fallingObject);
     };
@@ -73,9 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* 
-
-we have multiple options of code which was downladed, named ads.txt.  after 1st creation it creates multiple ojb's.  reveiw code next class.
-
+te
 /*
 
 # in hex color picking is 0x
