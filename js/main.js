@@ -10,8 +10,35 @@ document.addEventListener("DOMContentLoaded", () => {
     renderer.setClearColor(0x000000, 0); // Set clear color to black with 0 alpha (transparent)
     container.appendChild(renderer.domElement);
 
+    const loader = new THREE.STLLoader();
+    let model;
+    loader.load('stl/BOOK.stl', (geometry) => {
+        const material = new THREE.MeshNormalMaterial();
+        model = new THREE.Mesh(geometry, material);
+        model.position.set(0, 0, 0);
+        scene.add(model);
+    }, undefined, (error) => {
+        console.error(error);
+    });
+
+    const animate = () => {
+        requestAnimationFrame(animate);
+
+        if (model) {
+            model.postion.y -= 0.1;
+            model.rotation.x += 0.01;
+            model.rotation.y += 0.01;
+        }
+        renderer.render(scene, camera);
+
+    };
+
+    animate();
+
+
+    //basic book
     // Create geometry and material for cubes
-    const geometry = new THREE.BoxGeometry(.15, 1.3, .9);
+    /*const geometry = new THREE.BoxGeometry(.15, 1.3, .9);
     const loader = new THREE.TextureLoader();
     const material = [
         new THREE.MeshBasicMaterial({ map: loader.load('book.jpg') }),
@@ -65,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     createFallingObject();
 
     animate();
-
+*/
     // Set initial camera position
     camera.position.z = 15;
 
