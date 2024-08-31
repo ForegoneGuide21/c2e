@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0); // Set clear color to black with 0 alpha (transparent)
     container.appendChild(renderer.domElement);
-    
+
 
     const loader = new STLLoader();
     let model;
@@ -36,9 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
             model.rotation.x += 0.01;
             model.rotation.y += 0.01;
 
-        if (model.position.y < -14) {
-            // Create a new falling object when the current one goes out of view
-            createFallingObject();
+            if (model.position.y < -14) {
+                // Create a new falling object when the current one goes out of view
+                loader();
+            }
         }
         renderer.render(scene, camera);
 
@@ -59,13 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/* 
+/*
 te
 /*
 
 # in hex color picking is 0x
 
-#stl loader doesnt work
+# Found STL working link, but not redering correctly, check this next
 
 
 
@@ -82,7 +83,7 @@ te
         new THREE.MeshBasicMaterial({ map: loader.load('book-side.png')}),
         new THREE.MeshBasicMaterial({ map: loader.load('book-side.png')}),
         new THREE.MeshBasicMaterial({ color: 0x2d703c})
-        
+
     ];
 
     // Variable to hold the current falling object
@@ -128,7 +129,7 @@ te
 
     animate();
 */
-    // Set initial camera position
+// Set initial camera position
 
 
 
