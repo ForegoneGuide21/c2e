@@ -1,4 +1,8 @@
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+console.log("hm");
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
+
+import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.152.0/examples/jsm/loaders/STLLoader.js';
+
 
 document.addEventListener("DOMContentLoaded", () => {
     // Initialize the scene, camera, and renderer
@@ -11,8 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0); // Set clear color to black with 0 alpha (transparent)
     container.appendChild(renderer.domElement);
+    
 
-    const loader = new THREE.STLLoader();
+    const loader = new STLLoader();
     let model;
     loader.load('stl/BOOK.stl', (geometry) => {
         const material = new THREE.MeshNormalMaterial();
@@ -27,7 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(animate);
 
         if (model) {
-            model.postion.y -= 0.1;
+            model.position.y -= 0.1;
+            console.log(model.position.y);
             model.rotation.x += 0.01;
             model.rotation.y += 0.01;
         }
