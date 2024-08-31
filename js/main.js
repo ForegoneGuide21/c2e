@@ -1,7 +1,7 @@
 console.log("hm");
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
 
-import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.152.0/examples/jsm/loaders/STLLoader.js';
+import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.114.0/examples/jsm/loaders/STLLoader.js';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -33,15 +33,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (model) {
             model.position.y -= 0.1;
-            console.log(model.position.y);
             model.rotation.x += 0.01;
             model.rotation.y += 0.01;
+
+        if (model.position.y < -14) {
+            // Create a new falling object when the current one goes out of view
+            createFallingObject();
         }
         renderer.render(scene, camera);
 
     };
 
     animate();
+
+    camera.position.z = 15;
+
+    // Handle window resizing
+    window.addEventListener('resize', () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+    });
+});
+
+
+
+
+/* 
+te
+/*
+
+# in hex color picking is 0x
+
+#stl loader doesnt work
+
+
+
 
 
     //basic book
@@ -102,32 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
     animate();
 */
     // Set initial camera position
-    camera.position.z = 15;
-
-    // Handle window resizing
-    window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-    });
-});
-
-
-
-
-
-
-/* 
-te
-/*
-
-# in hex color picking is 0x
-
-#stl loader doesnt work
-
-
-
-
 
 
 
