@@ -1,28 +1,26 @@
-console.log("hm");
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
-
 import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.114.0/examples/jsm/loaders/STLLoader.js';
 
-
 document.addEventListener("DOMContentLoaded", () => {
-    // Initialize the scene, camera, and renderer
     const container = document.getElementById('when');
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-    // Create renderer with alpha transparency enabled
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0); // Set clear color to black with 0 alpha (transparent)
+    renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(1, 1, 1).normalize();
+    scene.add(light);
 
     const loader = new STLLoader();
     let model;
     loader.load('stl/BOOK.stl', (geometry) => {
-        const material = new THREE.MeshNormalMaterial();
+        const material = new THREE.MeshStandardMaterial({ color: 0xff5500 });
         model = new THREE.Mesh(geometry, material);
-        model.position.set(0, 0, 0);
+        model.position.set(0, 14, 0);
         scene.add(model);
     }, undefined, (error) => {
         console.error(error);
@@ -37,19 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
             model.rotation.y += 0.01;
 
             if (model.position.y < -14) {
-                // Create a new falling object when the current one goes out of view
-                loader();
+                model.position.y = 14; // Reset position instead of reloading the model
             }
         }
         renderer.render(scene, camera);
-
     };
 
     animate();
 
     camera.position.z = 15;
 
-    // Handle window resizing
     window.addEventListener('resize', () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
         camera.aspect = window.innerWidth / window.innerHeight;
