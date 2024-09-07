@@ -1,5 +1,8 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
-import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.114.0/examples/jsm/loaders/STLLoader.js';
+
+import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.114.0/examples/jsm/loaders/STLLoader.js'; 
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById('when');
