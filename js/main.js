@@ -1,7 +1,6 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three-js@0.168.0/three.js';
 
-import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.114.0/examples/jsm/loaders/STLLoader.js'; 
-
+import { OBJLoader } from 'https://cdn.jsdelivr.net/npm/three-obj-loader@1.1.3/dist/index.js';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -18,11 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     light.position.set(1, 1, 1).normalize();
     scene.add(light);
 
-    const loader = new STLLoader();
+    const loader = new OBJLoader();
     let model;
-    loader.load('stl/BOOK.stl', (geometry) => {
-        const material = new THREE.MeshStandardMaterial({ color: 0xff5500 });
-        model = new THREE.Mesh(geometry, material);
+    loader.load('stl/book.obj', (object) => {
+        model = object;
         model.position.set(0, 14, 0);
         scene.add(model);
     }, undefined, (error) => {
@@ -59,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /*
-te
+t
 /*
 
 # in hex color picking is 0x
