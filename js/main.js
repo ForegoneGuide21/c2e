@@ -1,6 +1,6 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three-js@0.168.0/three.js';
+import * as THREE from 'three';
 
-import { OBJLoader } from 'https://cdn.jsdelivr.net/npm/three-obj-loader@1.1.3/dist/index.js';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 
 
 document.addEventListener("DOMContentLoaded", () => {
