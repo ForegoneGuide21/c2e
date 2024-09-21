@@ -1,57 +1,92 @@
-import * as THREE from 'three';
-
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
-
-
 document.addEventListener("DOMContentLoaded", () => {
+    // Initialize the scene, camera, and renderer
     const container = document.getElementById('when');
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
+    // Create renderer with alpha transparency enabled
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0);
+    renderer.setClearColor(0x000000, 0); // Set clear color to black with 0 alpha (transparent)
     container.appendChild(renderer.domElement);
 
-    const light = new THREE.DirectionalLight(0xffffff, 1);
-    light.position.set(1, 1, 1).normalize();
-    scene.add(light);
+    // Create geometry and material for cubes
+    const geometry = new THREE.BoxGeometry(.15, 1.3, .9);
+    const loader = new THREE.TextureLoader();
+    const material = [
+        new THREE.MeshBasicMaterial({ map: loader.load('images/book.jpg') }),
+        new THREE.MeshBasicMaterial({ color: 0x2d703c}),
+        new THREE.MeshBasicMaterial({ map: loader.load('images/book-side.png')}),
+        new THREE.MeshBasicMaterial({ map: loader.load('images/book-side.png')}),
+        new THREE.MeshBasicMaterial({ map: loader.load('images/book-side.png')}),
+        new THREE.MeshBasicMaterial({ color: 0x2d703c})
+        
+    ];
 
-    const loader = new OBJLoader();
-    let model;
-    loader.load('stl/book.obj', (object) => {
-        model = object;
-        model.position.set(0, 14, 0);
-        scene.add(model);
-    }, undefined, (error) => {
-        console.error(error);
-    });
+    // Variable to hold the current falling object
+    let fallingObject = null;
 
+    // Function to create and animate falling objects
+    const createFallingObject = () => {
+        // Clean up the existing cube if any
+        if (fallingObject) {
+            scene.remove(fallingObject);
+            fallingObject.geometry.dispose(); // Clean up geometry
+            //fallingObject.material.dispose(); // Clean up material
+            material.forEach(material => material.dispose());
+        }
+
+        // Create a new cube
+        fallingObject = new THREE.Mesh(geometry, material);
+        fallingObject.position.set((Math.random() - 0.5) * 10, 20 + Math.random() * 10, 1);
+        fallingObject.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
+        scene.add(fallingObject);
+    };
+
+    // Animate the scene
     const animate = () => {
         requestAnimationFrame(animate);
 
-        if (model) {
-            model.position.y -= 0.1;
-            model.rotation.x += 0.01;
-            model.rotation.y += 0.01;
+        if (fallingObject) {
+            fallingObject.position.y -= 0.1;
+            fallingObject.rotation.x += 0.03;
+            fallingObject.rotation.y += 0.05;
 
-            if (model.position.y < -14) {
-                model.position.y = 14; // Reset position instead of reloading the model
+            if (fallingObject.position.y < -14) {
+                // Create a new falling object when the current one goes out of view
+                createFallingObject();
             }
         }
+
         renderer.render(scene, camera);
     };
 
+    // Create the first falling object
+    createFallingObject();
+
     animate();
 
+    // Set initial camera position
     camera.position.z = 15;
 
+    // Handle window resizing
     window.addEventListener('resize', () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
     });
 });
+
+
+
+
+
+
+/* 
+te
+/*
+
+# in hex color picking is 0x
 
 
 
